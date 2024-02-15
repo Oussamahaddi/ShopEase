@@ -11,11 +11,12 @@ type CardProps = {
 	course: Course
 }
 const CourseCard: React.FC<CardProps> = ({ course }) => {
-	const { title, image: uri, price } = course
+	const { title, image: uri, price, id } = course
 	const navigation = useNavigation<NavigationProp<MainNavParamList>>()
 	const dispatch = useAppDispatch()
 	return (
 		<Pressable
+			testID={'course-card-' + id}
 			style={styles.container}
 			onPress={() => {
 				navigation.navigate('Course', { courseId: course.id })
